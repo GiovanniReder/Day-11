@@ -275,12 +275,12 @@ console.log(title);
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
-function filmUscitiDopoIl2000(movies) {
+function arrayFilm(movies) {
   const filmPost2000 = movies.filter((film) => parseInt(film.Year) >= 2000);
   return filmPost2000;
 }
 
-const filmPost2000 = filmUscitiDopoIl2000(movies);
+const filmPost2000 = arrayFilm(movies);
 console.log(filmPost2000);
 
 /* ESERCIZIO 13 (reduce)
