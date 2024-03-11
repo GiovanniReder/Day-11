@@ -287,9 +287,7 @@ console.log(filmPost2000);
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
 function sumYear(movies) {
-  // Utilizziamo il metodo reduce per calcolare la somma degli anni di produzione dei film
   const sum = movies.reduce((somma, film) => {
-    // Convertiamo l'anno in un numero e lo aggiungiamo alla somma
     return somma + parseInt(film.Year);
   }, 0);
 
