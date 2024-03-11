@@ -236,40 +236,68 @@ const movies = [
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
-function trovaFilmPiuVecchio(movies) {
-  let filmPiuVecchio = null;
+function theOldestMovie(movies) {
+  let oldMovie = null;
 
   movies.forEach(function (film) {
-    // Se il film più vecchio non è ancora stato impostato o se il film corrente è più vecchio del film più vecchio trovato finora
-    if (
-      !filmPiuVecchio ||
-      parseInt(film.Year) < parseInt(filmPiuVecchio.Year)
-    ) {
-      filmPiuVecchio = film;
+    if (!oldMovie || parseInt(film.Year) < parseInt(oldMovie.Year)) {
+      oldMovie = film;
     }
   });
 
-  return filmPiuVecchio;
+  return oldMovie;
 }
 
-const filmPiuVecchio = trovaFilmPiuVecchio(movies);
-console.log(filmPiuVecchio);
+const oldMovie = theOldestMovie(movies);
+console.log(oldMovie);
 
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
+function numeroDiFilm(movies) {
+  return movies.length;
+}
+
+const numeroFilm = numeroDiFilm(movies);
+console.log(numeroFilm);
 
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
+function onlyTitle(movies) {
+  const title = movies.map((film) => film.Title);
+  return title;
+}
+
+const title = onlyTitle(movies);
+console.log(title);
 
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
+function filmUscitiDopoIl2000(movies) {
+  const filmPost2000 = movies.filter((film) => parseInt(film.Year) >= 2000);
+  return filmPost2000;
+}
+
+const filmPost2000 = filmUscitiDopoIl2000(movies);
+console.log(filmPost2000);
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+function sumYear(movies) {
+  // Utilizziamo il metodo reduce per calcolare la somma degli anni di produzione dei film
+  const sum = movies.reduce((somma, film) => {
+    // Convertiamo l'anno in un numero e lo aggiungiamo alla somma
+    return somma + parseInt(film.Year);
+  }, 0);
+
+  return sum;
+}
+
+const sum = sumYear(movies);
+console.log(sum);
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
